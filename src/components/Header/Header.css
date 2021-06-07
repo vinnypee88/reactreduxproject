@@ -1,12 +1,33 @@
-.Header {
+/* .Header {
     color:red;
     border: black solid 1px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     align-items: center;
+} */
+.Header {
+    display: grid; 
+    grid-template-rows: 1fr;
+    grid-template-columns: 3fr 1fr;
+    grid-column-gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+}
+.headerlogo {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+.SearchButton {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    margin-right: 20px;
 }
 img {
     height: 50px;
-    width: 50px
+    width: 50px;
+    padding:15px;
 }
