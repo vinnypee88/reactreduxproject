@@ -1,0 +1,12 @@
+.Header {
+    color:red;
+    border: black solid 1px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+img {
+    height: 50px;
+    width: 50px
+}
