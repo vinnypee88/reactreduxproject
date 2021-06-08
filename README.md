@@ -8,20 +8,28 @@ The application will allow users to view and search posts and comments provided 
 
 ## Current Work 
 
+Initial setup is complete with the header, searchbar, main and aside all with visually pleasing spacing between them.
+The main and aside were implemented as HTML and not as react components as the requirements are not currently there. 
+
+* Create a Post component of which multiple will be rendered in the main section
+* Use Mock data to style the component 
+* fetch data from the RedditAPI and observe the data format and the key information that could be extracted to present to users.
+
+## Future Work 
+
+* Build a redux store to manage the state data retrieved from the reddit API.
+* Nav will have predifined topics that users will be able to effortlessly navigate to. 
+* Add animations to the site to create the best user experience.
+
+## Previous Work 
+
+7.Jun.2021
 The initial phase will involve creating the parent components that will render the header, main body and the nav. 
 Due to the simplicity of the page, a digital wireframe will not be created for particular project at this time. 
 * Create header Component
 * Create main body component
 * Create the nav component. 
 * Make the page responsive using CSS. 
-
-## Future Work 
-
-* Create child components of 3 parent components, header, main and nav. 
-* Header will have a search bar for users to filter and search for posts
-* Nav will have predifined topics that users will be able to effortlessly navigate to. 
-* Main body will contain individual posts which will contain comments, images etc. 
-* The components will fetch data from the Reddit API and this will be stored in the store.js file using redux technologies. 
 
 ## Testing 
 At this stage, this project will not be test driven.
