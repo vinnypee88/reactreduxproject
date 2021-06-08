@@ -9,7 +9,7 @@ class Header extends React.Component {
             <div className="Header">
                
                 <div className='headerlogo'>
-                <img src={reddit} alt='logo'/> 
+                <img className='logo' src={reddit} alt='logo'/> 
                 <h1 >Fluffless Reddit</h1>
                 </div>
                

@@ -1,0 +1,17 @@
+.Post {
+    border: black solid 1px;
+    margin:20px;
+
+}
+h2{
+    padding-left: 30px;
+    text-align: left;
+}
+p {
+    padding-left: 30px;
+    text-align: left;
+}
+.woman{
+    height: 500px;
+    width: auto;
+}

@@ -1,18 +1,9 @@
-/* .Header {
-    color:red;
-    border: black solid 1px;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    align-items: center;
-} */
 .Header {
     display: grid; 
     grid-template-rows: 1fr;
     grid-template-columns: 3fr 1fr;
     grid-column-gap: 20px;
     align-items: center;
-    margin-top: 20px;
 }
 .headerlogo {
     display:flex;
@@ -38,7 +29,6 @@ img {
     }
     .headerlogo {
         font-size: 70%;
-        margin-right: 10px;
     }
     .SearchButton {
         margin-right: 0px;
