@@ -31,3 +31,16 @@ img {
     width: 50px;
     padding:15px;
 }
+
+@media only screen and (max-width:540px) {
+    .Header {
+        display: block;
+    }
+    .headerlogo {
+        font-size: 70%;
+        margin-right: 10px;
+    }
+    .SearchButton {
+        margin-right: 0px;
+    }
+    }

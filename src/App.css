@@ -33,3 +33,15 @@ aside {
   grid-column-start: 2;
   grid-column-end: 3;
 }
+
+@media only screen and (max-width:950px){
+aside {
+  display: none
+}
+main {
+  grid-column-end: 3;
+  margin-right: 20px;
+}
+}
+
+
