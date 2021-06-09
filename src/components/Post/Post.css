@@ -5,13 +5,32 @@
 }
 h2{
     padding-left: 30px;
+    padding-right: 30px;
     text-align: left;
 }
 p {
     padding-left: 30px;
+    padding-right: 30px;
     text-align: left;
 }
-.woman{
-    height: 500px;
-    width: auto;
+.Post img{
+    height: auto;
+    width: 70%;
+    flex-direction: column;
 }
+
+
+@media only screen and (max-width:400px){
+    
+.Post h2{
+    font-size: 0.5em;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.Post p{
+    font-size: 0.5em;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+} 

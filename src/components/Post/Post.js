@@ -1,19 +1,16 @@
 import React from 'react'
 import './Post.css'
 
-class Post extends React.Component {
-    
-    render() {
-        return (
-            <div className="Post">
-               <h2>Title of Post</h2>
-               <img className='woman' src="/staff3.jpg" alt="woman"/>
-               <p>Post caption</p>
-                
-               
-            </div>
-        )
-    }
+
+function Post ({name, media, author}) {
+
+    return (
+                    <div className="Post">
+                       <h2>{name}</h2>
+                     
+                       <img className='woman' src={media} alt="woman"/>
+                       <p>{author}</p>
+                    </div>
+                )
 }
 export default Post
-

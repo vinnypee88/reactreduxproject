@@ -1,28 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Header from './components/Header/Header'
 import Post from './components/Post/Post'
-
+import { useDispatch } from "react-redux";
+import { getData } from './features/popularPost/popularPostSlice'
+import { useSelector } from 'react-redux'
+import { selectPosts } from './features/popularPost/popularPostSlice'
 
 
 function App() {
 
- 
-async function getData () {
-  const response = await fetch('https://www.reddit.com/r/popular.json')
-  const json = await response.json()
-  const data = json.data.children
-  return data.map (item =>{
-    return item.data
-  })
-}
+  const arrayOfPosts = useSelector(selectPosts) // import the arrays of posts using useSelector
+  const dispatch = useDispatch()
 
-
-const state = {
-  state: getData()
-}
-console.log(state.state)
-
+  useEffect(() => {
+    dispatch(getData());
+  }, [dispatch]);
 
   return (
     <div className="App"> 
@@ -30,16 +23,18 @@ console.log(state.state)
       <Header className='Header'/>       
       
       <main>
-      <Post />
-      <Post />
-      <Post />
-      <Post />
-      
+
+        {arrayOfPosts.map(post => {
+          return <Post name={post.title} media={post.media} author={post.author}/>
+        })}
+
       </main>
       <aside>
         <p>aside</p>
       </aside>
         
+
+
       
     </div>
   );
