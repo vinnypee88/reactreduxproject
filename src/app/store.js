@@ -1,8 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import subRedditReducer from '../features/subRedditSlice/subRedditSlice'
+import popularPostReducer from '../features/popularPost/popularPostSlice'
+
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+     popularPost: popularPostReducer,
+     subReddit: subRedditReducer
   },
 });
