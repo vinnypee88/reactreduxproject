@@ -12,10 +12,13 @@ function App() {
 
   const arrayOfPosts = useSelector(selectPosts) // import the arrays of posts using useSelector
   const dispatch = useDispatch()
+  // dispatch(getComments())
 
   useEffect(() => {
     dispatch(getData());
   }, [dispatch]);
+
+
 
   return (
     <div className="App"> 
@@ -25,7 +28,7 @@ function App() {
       <main>
 
         {arrayOfPosts.map(post => {
-          return <Post name={post.title} media={post.media} author={post.author}/>
+          return <Post id={post.id} name={post.title} media={post.media} author={post.author} permalink={post.permalink}/>
         })}
 
       </main>

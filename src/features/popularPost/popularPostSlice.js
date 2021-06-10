@@ -8,20 +8,17 @@ export const getData = createAsyncThunk(
        return json.data.children.map(item=>item.data)
     }
   );
-
 const options = {
     name: 'popularPost',
     initialState: {
         posts: [{
             title: '',
             author: '',
-            media: ''   
+            media: '', 
+            permalink: '',
         }],
-        allData: {}
     },
-    Reducers: {
-        
-    },
+   
     extraReducers: {
         [getData.pending]: (state, action) => {
             state.isLoading = true;
@@ -36,7 +33,9 @@ const options = {
                 return {
                     title: post.title,
                     author: post.author,
-                    media: post.url
+                    media: post.url,
+                    permalink: post.permalink,
+                    id: post.name,
                 }
             })
             state.allData = action.payload //only here to read what data is available for use 
