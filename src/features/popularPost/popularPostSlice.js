@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 
 export const getData = createAsyncThunk(
-    "popularPost/getPosts",
+    "popularPost/getData",
     async (current) => {
       const data = await fetch(`https://www.reddit.com/r/${current}.json`);
       const json = await data.json();
@@ -44,16 +44,15 @@ const options = {
           [getData.fulfilled]: (state, action) => {
             state.isLoading = false;
             state.hasError = false;
-           
             state.posts = action.payload.map(post=>{
-                
                 return {
                     title: post.title,
                     author: post.author,
                     media: post.url,
                     permalink: post.permalink,
                     id: post.name,
-                    comments:[]
+                    num_comments: post.num_comments,
+                    comments:[],
                 }
             })
             // state.allData = action.payload //only here to read what data is available for use 
@@ -82,9 +81,7 @@ const options = {
                                       author: comment.data.author,
                                       }
                           })
-            } else {
-              alert('no comments')
-            }
+            } 
             },
             
 

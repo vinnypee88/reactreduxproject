@@ -6,7 +6,7 @@ import { getComments } from '../../features/popularPost/popularPostSlice'
 import Comments from '../Comments/Comments'
 
 
-function Post ({name, media, author, permalink, comments}) {
+function Post ({name, media, author, permalink, comments, num_comments}) {
 
     const [showResults, setShowResults] = useState(false)
 
@@ -27,7 +27,7 @@ function Post ({name, media, author, permalink, comments}) {
                        <h2 >{name}</h2>
                        <img className='woman' src={media} alt="woman" />
                        <p>{author}</p>
-                       <button  onClick ={handleClick} permalink={permalink}>comments</button>
+                       <button  onClick ={handleClick} permalink={permalink}>comments ({num_comments})</button>
                        
                              { showResults ? <Comments comments={comments}/> : null }
                         

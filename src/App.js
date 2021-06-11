@@ -32,7 +32,15 @@ const handleClick = (e) =>{
       <main>
 
         {arrayOfPosts.map(post => {
-          return <Post key={post.id} id={post.id} name={post.title} media={post.media} author={post.author} permalink={post.permalink} comments={post.comments}/>
+          return <Post key={post.id} 
+          id={post.id} 
+          name={post.title} 
+          media={post.media} 
+          author={post.author} 
+          permalink={post.permalink} 
+          comments={post.comments}
+          num_comments={post.num_comments}
+          />
         })}
 
       </main>
