@@ -1,7 +1,5 @@
 import React from 'react'
 
-
-
 function Comment ({comment, author}) {
 
     return (
@@ -11,7 +9,5 @@ function Comment ({comment, author}) {
                     </div>
                 )
 }
-
-
 
 export default Comment

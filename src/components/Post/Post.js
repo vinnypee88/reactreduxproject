@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './Post.css'
 import { useDispatch} from "react-redux";
-import { getComments, loadingScreen } from '../../features/comments/commentsSlice'
+// import { getComments, loadingScreen } from '../../features/comments/commentsSlice'
+import { getComments } from '../../features/popularPost/popularPostSlice'
 import Comments from '../Comments/Comments'
 
 
-function Post ({name, media, author, permalink, id}) {
+function Post ({name, media, author, permalink, comments}) {
 
     const [showResults, setShowResults] = useState(false)
 
@@ -14,15 +15,11 @@ function Post ({name, media, author, permalink, id}) {
 
     const handleClick = async () => {
         setShowResults(!showResults)
-        dispatch(loadingScreen())
+        // dispatch(loadingScreen())
         const apiRoot = 'https://www.reddit.com'
         const fetchCommentsLink = apiRoot + permalink + '.json'
         await dispatch(getComments(fetchCommentsLink))
     }
-    useEffect(()=>{
-        setShowResults(showResults)
-    }, [showResults])
-
  
     
     return (
@@ -32,7 +29,7 @@ function Post ({name, media, author, permalink, id}) {
                        <p>{author}</p>
                        <button  onClick ={handleClick} permalink={permalink}>comments</button>
                        
-                             { showResults ? <Comments id={id}/> : null }
+                             { showResults ? <Comments comments={comments}/> : null }
                         
                     </div>
                 )

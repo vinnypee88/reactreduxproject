@@ -1,16 +1,10 @@
 
-import { useSelector } from 'react-redux'
-import { selectComments } from '../../features/comments/commentsSlice'
 import Comment from '../Comment/Comment'
-import React, { useEffect } from 'react'
+import React from 'react'
 
+function Comments ({comments}) {    
 
-function Comments ({id}) {
-
-    const comments = useSelector(selectComments)
-
-    return (
-                       
+    return (     
                     <div className="Comments" >
                        {comments.map(comment =>
                         {
@@ -20,5 +14,4 @@ function Comments ({id}) {
                     </div>
             )
 }
-
 export default Comments
