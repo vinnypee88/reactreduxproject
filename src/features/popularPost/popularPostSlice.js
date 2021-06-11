@@ -2,8 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 
 export const getData = createAsyncThunk(
     "popularPost/getPosts",
-    async () => {
-      const data = await fetch('https://www.reddit.com/r/popular.json');
+    async (current) => {
+      const data = await fetch(`https://www.reddit.com/r/${current}.json`);
       const json = await data.json();
        return json.data.children.map(item=>item.data)
     }
@@ -18,13 +18,22 @@ export const getComments = createAsyncThunk(
     }
   );
 
+  export const changeTopic = createAsyncThunk(
+    "popularPost/getPosts",
+    async () => {
+      const data = await fetch('https://www.reddit.com/r/football.json');
+      const json = await data.json();
+       return json.data.children.map(item=>item.data)
+    }
+  );
+
 const options = {
     name: 'popularPost',
     initialState: {
         posts: [{
             
         }],
-        index: ''
+        index: []
     },
    
     extraReducers: {
@@ -55,13 +64,16 @@ const options = {
           },
           [getComments.pending] : (state, action) => {
             state.isLoadingComments = true;
-            state.hasErrorComments = false                                       
+            state.hasErrorComments = false                               
            },
           [getComments.fulfilled] : (state, action) => {
+           
             state.isLoadingComments = false;
             state.hasErrorComments = false;
+            let index
+            if (action.payload.length !== 0){
             //find the right post
-            const index = state.posts.findIndex(post=>{
+            index = state.posts.findIndex(post=>{
               return post.id === action.payload[0].data.parent_id         
             })
             //add comments to the comments key
@@ -70,10 +82,40 @@ const options = {
                                       author: comment.data.author,
                                       }
                           })
+            } else {
+              alert('no comments')
+            }
             },
+            
+
           [getComments.rejected] : (state, action) => {
             state.isLoadingComments = false;
             state.hasErrorComments = true
+            },
+            [changeTopic.pending]: (state, action) => {
+              state.isLoading = true;
+              state.hasError = false;
+            },
+            [changeTopic.fulfilled]: (state, action) => {
+              state.isLoading = false;
+              state.hasError = false;
+             
+              state.posts = action.payload.map(post=>{
+                  
+                  return {
+                      title: post.title,
+                      author: post.author,
+                      media: post.url,
+                      permalink: post.permalink,
+                      id: post.name,
+                      comments:[]
+                  }
+              })
+              // state.allData = action.payload //only here to read what data is available for use 
+            },
+            [changeTopic.rejected]: (state, action) => {
+              state.isLoading = false;
+              state.hasError = true;
             },
     }
 }

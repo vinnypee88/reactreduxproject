@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header'
 import Post from './components/Post/Post'
@@ -13,11 +13,16 @@ function App() {
   const arrayOfPosts = useSelector(selectPosts) // import the arrays of posts using useSelector
   const dispatch = useDispatch()
 
+  const [current, setCurrent] = useState('popular')
+
   useEffect(() => {
-    dispatch(getData());
-  }, [dispatch]);
+    dispatch(getData(current));
+  }, [current, dispatch]);
 
-
+ 
+const handleClick = (e) =>{
+ setCurrent(e.target.value)
+}
 
   return (
     <div className="App"> 
@@ -32,7 +37,13 @@ function App() {
 
       </main>
       <aside>
-        <p>aside</p>
+        <p>Topics</p>
+        <button onClick = {handleClick} value='popular'>popular</button><br></br>
+        <button onClick = {handleClick} value='football'>football</button><br></br>
+        <button onClick = {handleClick} value='tennis'>tennis</button><br></br>
+        <button onClick = {handleClick} value='rugbyunion'>rugby union</button><br></br>
+        <button onClick = {handleClick} value='golf'>golf</button><br></br>
+        <button onClick = {handleClick} value='cricket'>Cricket</button><br></br>
       </aside>
         
 
