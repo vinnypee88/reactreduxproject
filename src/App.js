@@ -35,7 +35,7 @@ const handleClick = (e) =>{
           return <Post key={post.id} 
           id={post.id} 
           name={post.title} 
-          media={post.media} 
+          url={post.url} 
           author={post.author} 
           permalink={post.permalink} 
           comments={post.comments}

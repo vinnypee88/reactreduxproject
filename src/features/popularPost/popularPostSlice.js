@@ -49,7 +49,7 @@ const options = {
                 return {
                     title: post.title,
                     author: post.author,
-                    media: post.url,
+                    url: post.url,
                     permalink: post.permalink,
                     id: post.name,
                     num_comments: post.num_comments,
@@ -107,7 +107,7 @@ const options = {
                   return {
                     title: post.title,
                     author: post.author,
-                    media: post.url,
+                    url: post.url,
                     permalink: post.permalink,
                     id: post.name,
                     num_comments: post.num_comments,
