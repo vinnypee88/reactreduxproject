@@ -6,7 +6,7 @@ import { getComments } from '../../features/popularPost/popularPostSlice'
 import Comments from '../Comments/Comments'
 
 
-function Post ({name, media, author, permalink, comments, num_comments, video}) {
+function Post ({name, url, author, permalink, comments, num_comments, video}) {
 
     const [showResults, setShowResults] = useState(false)
 
@@ -31,16 +31,32 @@ function Post ({name, media, author, permalink, comments, num_comments, video}) 
         : null;
       return videoId
   }
- 
+
+  const getTag = () => {
+    // if (is_video) {
+    //   return 
+    //   // (
+    //   // <video src={redditVid} autoplay></video>
+    //   // )
+    // }
+    if (video) {
+      return (
+      <div class="container" >
+        <iframe class="responsive-iframe" src={'//www.youtube.com/embed/' + getId(url)} frameborder="0" allowfullscreen></iframe>
+      </div>
+      )
+    }
+    else {
+      return (
+      <img className='woman' src={url} alt="woman" />
+      )
+    }
+    }
+  
     return (
                     <div className="Post" >
                        <h2 >{name}</h2>
-                       
-{video? <div class="container" >
-  <iframe class="responsive-iframe" src={'//www.youtube.com/embed/' + getId(media)} frameborder="0" allowfullscreen></iframe>
-</div> 
-                       : <img className='woman' src={media} alt="woman" /> }
-                 
+                        {getTag()}
                        <p>{author}</p>
                        <button  onClick ={handleClick} permalink={permalink}>comments ({num_comments})</button>
                        
