@@ -5,14 +5,12 @@ import { useDispatch} from "react-redux";
 import { getComments } from '../../features/popularPost/popularPostSlice'
 import Comments from '../Comments/Comments'
 
-
 function Post ({name, url, author, permalink, comments, num_comments, video, is_video, redditVid}) {
 
     const [showResults, setShowResults] = useState(false)
 
     const dispatch=useDispatch()
    
-
     const handleClick = async () => {
         setShowResults(!showResults)
         // dispatch(loadingScreen())
@@ -20,7 +18,6 @@ function Post ({name, url, author, permalink, comments, num_comments, video, is_
         const fetchCommentsLink = apiRoot + permalink + '.json'
         await dispatch(getComments(fetchCommentsLink))
     }
-
     // this function is to convert youtube link to the embed version
     function getId(url) {
       const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
@@ -58,9 +55,7 @@ function Post ({name, url, author, permalink, comments, num_comments, video, is_
                         {getTag()}
                        <p>{author}</p>
                        <button  onClick ={handleClick} permalink={permalink}>comments ({num_comments})</button>
-                       
                              { showResults ? <Comments comments={comments}/> : null }
-                        
                     </div>
                 )
 }

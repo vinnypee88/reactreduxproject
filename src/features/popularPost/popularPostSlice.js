@@ -35,7 +35,6 @@ const options = {
         }],
         index: []
     },
-   
     extraReducers: {
         [getData.pending]: (state, action) => {
             state.isLoading = true;
@@ -55,10 +54,7 @@ const options = {
                     comments:[],
                     video:post.secure_media_embed.media_domain_url,
                     is_video: post.is_video, 
-                    redditVid: post.media 
-
-                    
-                    
+                    redditVid: post.media  
                 }
             })
           },
@@ -71,7 +67,6 @@ const options = {
             state.hasErrorComments = false                               
            },
           [getComments.fulfilled] : (state, action) => {
-           
             state.isLoadingComments = false;
             state.hasErrorComments = false;
             let index
@@ -88,8 +83,6 @@ const options = {
                           })
             } 
             },
-            
-
           [getComments.rejected] : (state, action) => {
             state.isLoadingComments = false;
             state.hasErrorComments = true
@@ -113,9 +106,7 @@ const options = {
                     comments:[],
                     video:post.secure_media_embed.media_domain_url,
                     is_video: post.is_video, 
-                    redditVid: post.media 
-                     
-                     
+                    redditVid: post.media, 
                   }
               })
             },

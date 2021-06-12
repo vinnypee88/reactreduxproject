@@ -7,7 +7,6 @@ import { getData } from './features/popularPost/popularPostSlice'
 import { useSelector } from 'react-redux'
 import { selectPosts } from './features/popularPost/popularPostSlice'
 
-
 function App() {
 
   const arrayOfPosts = useSelector(selectPosts) // import the arrays of posts using useSelector
@@ -40,9 +39,9 @@ const handleClick = (e) =>{
           permalink={post.permalink} 
           comments={post.comments}
           num_comments={post.num_comments}
-         video={post.video}
-         is_video={post.is_video}
-         redditVid={post.redditVid}
+          video={post.video}
+          is_video={post.is_video}
+          redditVid={post.redditVid}
           />
         })}
 
