@@ -6,7 +6,7 @@ import { getComments } from '../../features/popularPost/popularPostSlice'
 import Comments from '../Comments/Comments'
 
 
-function Post ({name, url, author, permalink, comments, num_comments, video}) {
+function Post ({name, url, author, permalink, comments, num_comments, video, is_video, redditVid}) {
 
     const [showResults, setShowResults] = useState(false)
 
@@ -33,12 +33,11 @@ function Post ({name, url, author, permalink, comments, num_comments, video}) {
   }
 
   const getTag = () => {
-    // if (is_video) {
-    //   return 
-    //   // (
-    //   // <video src={redditVid} autoplay></video>
-    //   // )
-    // }
+    if (is_video) {
+      return (
+      <video src={redditVid.reddit_video.fallback_url} autoplay controls></video>
+      )
+    }
     if (video) {
       return (
       <div class="container" >

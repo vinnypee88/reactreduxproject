@@ -44,7 +44,6 @@ const options = {
           [getData.fulfilled]: (state, action) => {
             state.isLoading = false;
             state.hasError = false;
-            state.allData = action.payload
             state.posts = action.payload.map(post=>{
                 return {
                     title: post.title,
@@ -55,12 +54,13 @@ const options = {
                     num_comments: post.num_comments,
                     comments:[],
                     video:post.secure_media_embed.media_domain_url,
+                    is_video: post.is_video, 
+                    redditVid: post.media 
 
                     
                     
                 }
             })
-            // state.allData = action.payload //only here to read what data is available for use 
           },
           [getData.rejected]: (state, action) => {
             state.isLoading = false;
@@ -101,7 +101,6 @@ const options = {
             [changeTopic.fulfilled]: (state, action) => {
               state.isLoading = false;
               state.hasError = false;
-             
               state.posts = action.payload.map(post=>{
                   
                   return {
@@ -113,11 +112,12 @@ const options = {
                     num_comments: post.num_comments,
                     comments:[],
                     video:post.secure_media_embed.media_domain_url,
+                    is_video: post.is_video, 
+                    redditVid: post.media 
                      
                      
                   }
               })
-              // state.allData = action.payload //only here to read what data is available for use 
             },
             [changeTopic.rejected]: (state, action) => {
               state.isLoading = false;

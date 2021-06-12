@@ -41,6 +41,8 @@ const handleClick = (e) =>{
           comments={post.comments}
           num_comments={post.num_comments}
          video={post.video}
+         is_video={post.is_video}
+         redditVid={post.redditVid}
           />
         })}
 
