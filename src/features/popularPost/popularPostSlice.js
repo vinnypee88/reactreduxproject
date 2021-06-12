@@ -44,6 +44,7 @@ const options = {
           [getData.fulfilled]: (state, action) => {
             state.isLoading = false;
             state.hasError = false;
+            state.allData = action.payload
             state.posts = action.payload.map(post=>{
                 return {
                     title: post.title,
@@ -53,6 +54,10 @@ const options = {
                     id: post.name,
                     num_comments: post.num_comments,
                     comments:[],
+                    video:post.secure_media_embed.media_domain_url,
+
+                    
+                    
                 }
             })
             // state.allData = action.payload //only here to read what data is available for use 
@@ -100,12 +105,16 @@ const options = {
               state.posts = action.payload.map(post=>{
                   
                   return {
-                      title: post.title,
-                      author: post.author,
-                      media: post.url,
-                      permalink: post.permalink,
-                      id: post.name,
-                      comments:[]
+                    title: post.title,
+                    author: post.author,
+                    media: post.url,
+                    permalink: post.permalink,
+                    id: post.name,
+                    num_comments: post.num_comments,
+                    comments:[],
+                    video:post.secure_media_embed.media_domain_url,
+                     
+                     
                   }
               })
               // state.allData = action.payload //only here to read what data is available for use 

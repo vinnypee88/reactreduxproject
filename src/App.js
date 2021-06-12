@@ -40,6 +40,7 @@ const handleClick = (e) =>{
           permalink={post.permalink} 
           comments={post.comments}
           num_comments={post.num_comments}
+         video={post.video}
           />
         })}
 
@@ -51,7 +52,7 @@ const handleClick = (e) =>{
         <button onClick = {handleClick} value='tennis'>tennis</button><br></br>
         <button onClick = {handleClick} value='rugbyunion'>rugby union</button><br></br>
         <button onClick = {handleClick} value='golf'>golf</button><br></br>
-        <button onClick = {handleClick} value='cricket'>Cricket</button><br></br>
+        <button onClick = {handleClick} value='videos'>Videos</button><br></br>
       </aside>
         
 
