@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import './Post.css'
 import { useDispatch} from "react-redux";
-// import { getComments, loadingScreen } from '../../features/comments/commentsSlice'
 import { getComments } from '../../features/popularPost/popularPostSlice'
 import Comments from '../Comments/Comments'
 
@@ -13,7 +12,6 @@ function Post ({name, url, author, permalink, comments, num_comments, video, is_
    
     const handleClick = async () => {
         setShowResults(!showResults)
-        // dispatch(loadingScreen())
         const apiRoot = 'https://www.reddit.com'
         const fetchCommentsLink = apiRoot + permalink + '.json'
         await dispatch(getComments(fetchCommentsLink))
@@ -32,7 +30,7 @@ function Post ({name, url, author, permalink, comments, num_comments, video, is_
   const getTag = () => {
     if (is_video) {
       return (
-      <video src={redditVid.reddit_video.fallback_url} autoplay controls></video>
+      <video src={redditVid.reddit_video.fallback_url} controls></video>
       )
     }
     if (video) {

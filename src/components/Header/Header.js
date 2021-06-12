@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Header.css'
 import reddit from './reddit.svg'
+import { filterSearch } from '../../features/popularPost/popularPostSlice'
+import { useDispatch } from "react-redux";
 
-class Header extends React.Component {
+function Header () {
+
+ 
+    const [search, setSearch] = useState('')
+    const dispatch = useDispatch()
     
-    render() {
+    function handleTermChange (e) {
+        setSearch(e.target.value)
+    }
+
+    const clickSearch =()=>{
+           dispatch(filterSearch(search))
+    }
+    
         return (
             <div className="Header">
                
@@ -14,15 +27,14 @@ class Header extends React.Component {
                 </div>
                
                 <div className="SearchButton">
-                <input placeholder="Search"
-                />
-                <button >Search
+                <input placeholder="Search" onChange={handleTermChange}/>
+                <button onClick={clickSearch}>Search
                 </button>
                 </div>
                
             </div>
         )
     }
-}
+
 export default Header
 

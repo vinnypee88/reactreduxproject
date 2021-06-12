@@ -12,15 +12,51 @@ function App() {
   const arrayOfPosts = useSelector(selectPosts) // import the arrays of posts using useSelector
   const dispatch = useDispatch()
 
-  const [current, setCurrent] = useState('popular')
-
+  // default loading topic is 'popular'.
+  const [currentTopic, setCurrentTopic] = useState('popular')
+  
   useEffect(() => {
-    dispatch(getData(current));
-  }, [current, dispatch]);
+    dispatch(getData(currentTopic));
+  }, [currentTopic, dispatch]);
 
  
 const handleClick = (e) =>{
- setCurrent(e.target.value)
+ setCurrentTopic(e.target.value)
+}
+
+//If there are no results, the No results component will show, else the posts will be mapped and rendered. 
+const display = () => {
+  if (arrayOfPosts.length === 0) {
+    return (
+      <div>
+        {console.log(arrayOfPosts)}
+    <h2>No Results</h2>
+    <button onClick={home}>Return to Homepage</button>
+     </div>
+    )
+  } else {
+    return(
+    arrayOfPosts.map(post => {
+      return <Post key={post.id} 
+      id={post.id} 
+      name={post.title} 
+      url={post.url} 
+      author={post.author} 
+      permalink={post.permalink} 
+      comments={post.comments}
+      num_comments={post.num_comments}
+      video={post.video}
+      is_video={post.is_video}
+      redditVid={post.redditVid}
+      />
+    }))
+
+  }
+}
+
+//for the return hom button when no search results
+const home = () => {
+  window.location = '/'; 
 }
 
   return (
@@ -29,22 +65,7 @@ const handleClick = (e) =>{
       <Header className='Header'/>       
       
       <main>
-
-        {arrayOfPosts.map(post => {
-          return <Post key={post.id} 
-          id={post.id} 
-          name={post.title} 
-          url={post.url} 
-          author={post.author} 
-          permalink={post.permalink} 
-          comments={post.comments}
-          num_comments={post.num_comments}
-          video={post.video}
-          is_video={post.is_video}
-          redditVid={post.redditVid}
-          />
-        })}
-
+        {display()}
       </main>
       <aside>
         <p>Topics</p>

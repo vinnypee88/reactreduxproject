@@ -35,6 +35,19 @@ const options = {
         }],
         index: []
     },
+    reducers: {
+      filterSearch: (state, action) => {
+        
+          const filteredPosts = state.posts.filter(post=>{
+            return post.title.toLowerCase().includes(action.payload.toLowerCase())
+          })
+          if (filteredPosts.length === 0) {
+            state.posts = [] //render a better page with a button to go back to home page.
+          } else {
+            state.posts = filteredPosts
+          }
+      }
+    },
     extraReducers: {
         [getData.pending]: (state, action) => {
             state.isLoading = true;
@@ -118,7 +131,7 @@ const options = {
 }
 
 const popularPostSlice = createSlice(options)
-
+export const { filterSearch } = popularPostSlice.actions
 export const selectPosts = state => state.popularPost.posts
 
 export default popularPostSlice.reducer
