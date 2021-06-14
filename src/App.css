@@ -13,35 +13,114 @@ grid-row-start: 1;
 grid-row-end: 2;
 grid-column-start: 1;
 grid-column-end:3;
-
+margin-top: 10px;
 }
 
 main {
+  top:0;
   margin-left: 20px;
-  border: pink solid 5px;
   grid-row-start: 2;
   grid-row-end: 3;
   grid-column-start: 1;
   grid-column-end: 2;
 }
+aside button {
+  font-size: 80px;
+  border:none;
+  background-color: rgb(219, 243, 211);
+}
+aside button:hover {
+  font-size:100px;
+}
+aside h2 {
+  text-align: center;
+  margin-top: 0;
+}
 
 aside {
+  margin-top: 20px;
   margin-right:20px;
-  border: purple solid 5px;
   grid-row-start: 2;
   grid-row-end: 3;
   grid-column-start: 2;
   grid-column-end: 3;
+  background-color:rgb(219, 243, 211);
+  box-shadow: 5px 10px rgba(181, 202, 174, 0.786);
+    -webkit-box-shadow: 3px 3px 5px 6px rgba(181, 202, 174, 0.786);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:    3px 3px 5px 6px rgba(181, 202, 174, 0.786);  /* Firefox 3.5 - 3.6 */
+}
+aside:hover{
+    box-shadow: 5px 10px rgba(112, 124, 108, 0.786);
+    -webkit-box-shadow: 3px 3px 20px 6px rgba(112, 124, 108, 0.786);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:    3px 3px 20px 6px rgba(112, 124, 108, 0.786)  /* Firefox 3.5 - 3.6 */
 }
 
-@media only screen and (max-width:950px){
+@media only screen and (max-width:950px) and (min-width:540px){
 aside {
-  display: none
+display: flex;
+justify-content: space-around;
+justify-items: center;
+grid-row-start: 1;
+grid-row-end: 2;
+grid-column-start: 1;
+grid-column-end:3;
+margin-top: 100px;
+height:50px;
+margin-left: 40px;
+margin-right:40px
+}
+aside button:hover {
+  font-size:40px;
+}
+aside h2{
+  display: none;
+}
+aside button {
+  font-size: 20px;
 }
 main {
+  margin-top: 70px;
   grid-column-end: 3;
   margin-right: 20px;
 }
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width:540px) {
+  aside {
+    display: flex;
+    justify-content: space-around;
+    justify-items: center;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end:3;
+    margin-top: 130px;
+    height:50px;
+    margin-left: 40px;
+    margin-right:40px
+    }
+    aside button:hover {
+      font-size:40px;
+    }
+    aside h2{
+      display: none;
+    }
+    aside button {
+      font-size: 20px;
+    }
+  main {
+    grid-column-end: 3;
+    margin-right: 20px;
+    margin-top: 100px;
+   
+  }
 }
 
 

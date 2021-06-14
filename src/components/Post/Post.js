@@ -42,7 +42,7 @@ function Post ({name, url, author, permalink, comments, num_comments, video, is_
     }
     else {
       return (
-      <img className='woman' src={url} alt="woman" />
+      <img src={url} alt='link' />
       )
     }
     }
@@ -51,8 +51,10 @@ function Post ({name, url, author, permalink, comments, num_comments, video, is_
                     <div className="Post" >
                        <h2 >{name}</h2>
                         {getTag()}
-                       <p>{author}</p>
-                       <button  onClick ={handleClick} permalink={permalink}>comments ({num_comments})</button>
+                        <div className='author-comments'>
+                       <p className='post-author'>{author}</p>
+                       <button className="comments-button" onClick ={handleClick} permalink={permalink}><i className="fa fa-bullhorn"></i> {num_comments}</button>
+                             </div>
                              { showResults ? <Comments comments={comments}/> : null }
                     </div>
                 )

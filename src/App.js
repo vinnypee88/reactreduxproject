@@ -13,14 +13,14 @@ function App() {
   const dispatch = useDispatch()
 
   // default loading topic is 'popular'.
-  const [currentTopic, setCurrentTopic] = useState('popular')
+  const [currentTopic, setCurrentTopic] = useState('sports')
   
   useEffect(() => {
     dispatch(getData(currentTopic));
   }, [currentTopic, dispatch]);
 
  
-const handleClick = (e) =>{
+  const handleClick = (e) =>{
  setCurrentTopic(e.target.value)
 }
 
@@ -68,13 +68,13 @@ const home = () => {
         {display()}
       </main>
       <aside>
-        <p>Topics</p>
-        <button onClick = {handleClick} value='popular'>popular</button><br></br>
-        <button onClick = {handleClick} value='football'>football</button><br></br>
-        <button onClick = {handleClick} value='tennis'>tennis</button><br></br>
-        <button onClick = {handleClick} value='rugbyunion'>rugby union</button><br></br>
-        <button onClick = {handleClick} value='golf'>golf</button><br></br>
-        <button onClick = {handleClick} value='videos'>Videos</button><br></br>
+        <h2>SubReddits</h2>
+        <button onClick = {handleClick} value='sports'>&#127962;</button>
+        <button onClick = {handleClick} value='football'>&#9917;</button>
+        <button onClick = {handleClick} value='tennis'>&#127934;</button>
+        <button onClick = {handleClick} value='rugbyunion'>&#127945;</button>
+        <button onClick = {handleClick} value='basketball'>&#127936;</button>
+        <button onClick = {handleClick} value='golf'>&#127948;</button>
       </aside>
         
 

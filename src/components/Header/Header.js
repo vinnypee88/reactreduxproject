@@ -23,9 +23,8 @@ function Header () {
                
                 <div className='headerlogo'>
                 <img className='logo' src={reddit} alt='logo'/> 
-                <h1 >Fluffless Reddit</h1>
+                <h1 >Reddit Sport</h1>
                 </div>
-               
                 <div className="SearchButton">
                 <input placeholder="Search" onChange={handleTermChange}/>
                 <button onClick={clickSearch}><i class="fa fa-search"></i>
