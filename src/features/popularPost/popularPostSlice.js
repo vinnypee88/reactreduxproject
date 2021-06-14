@@ -75,6 +75,7 @@ const options = {
             state.isLoading = false;
             state.hasError = true;
           },
+          //ExtraReducer to handle the get comments thunk action
           [getComments.pending] : (state, action) => {
             state.isLoadingComments = true;
             state.hasErrorComments = false                               
@@ -104,6 +105,7 @@ const options = {
               state.isLoading = true;
               state.hasError = false;
             },
+            //ExtraReducer to handle the changeTopic thunk action
             [changeTopic.fulfilled]: (state, action) => {
               state.isLoading = false;
               state.hasError = false;
