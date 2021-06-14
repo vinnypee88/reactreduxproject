@@ -28,7 +28,7 @@ function Header () {
                
                 <div className="SearchButton">
                 <input placeholder="Search" onChange={handleTermChange}/>
-                <button onClick={clickSearch}>Search
+                <button onClick={clickSearch}><i class="fa fa-search"></i>
                 </button>
                 </div>
                
