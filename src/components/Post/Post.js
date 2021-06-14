@@ -30,13 +30,13 @@ function Post ({name, url, author, permalink, comments, num_comments, video, is_
   const getTag = () => {
     if (is_video) {
       return (
-      <video src={redditVid.reddit_video.fallback_url} controls></video>
+      <video controls><source src={redditVid.reddit_video.fallback_url}></source></video>
       )
     }
     if (video) {
       return (
-      <div class="container" >
-        <iframe class="responsive-iframe" src={'//www.youtube.com/embed/' + getId(url)} frameborder="0" allowfullscreen></iframe>
+      <div className="container" >
+        <iframe className="responsive-iframe" src={'//www.youtube.com/embed/' + getId(url)} frameBorder="0" allowFullScreen></iframe>
       </div>
       )
     }
