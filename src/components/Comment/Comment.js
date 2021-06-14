@@ -1,11 +1,12 @@
 import React from 'react'
+import './Comment.css'
 
 function Comment ({comment, author}) {
 
     return (
                     <div>
-                        <p>{comment}</p>
-                        <p>{author}</p>
+                        <p className='comment'>{comment}</p>
+                        <p className='author'>{author}</p>
                     </div>
                 )
 }
