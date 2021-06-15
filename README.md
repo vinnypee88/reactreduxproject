@@ -15,6 +15,7 @@ First draft has been published on Netflify. https://inspiring-ritchie-c27ab1.net
 * Hover effects on mobile devices need to be changed to onclick. 
 * Currently posts with external links or no media show up as an unloaded page. Need to fnd a way to filter these posts from 
 the API response.
+* Add time stamps to posts and comments.
 
 ## Future Work 
 
