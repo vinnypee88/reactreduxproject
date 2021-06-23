@@ -18,22 +18,11 @@ export const getComments = createAsyncThunk(
     }
   );
 
-  export const changeTopic = createAsyncThunk(
-    "popularPost/getPosts",
-    async () => {
-      const data = await fetch('https://www.reddit.com/r/football.json');
-      const json = await data.json();
-       return json.data.children.map(item=>item.data)
-    }
-  );
-
 const options = {
     name: 'popularPost',
     initialState: {
-        posts: [{
-            
-        }],
-        index: []
+        posts: [{}],
+        index: [],
     },
     reducers: {
       filterSearch: (state, action) => {
@@ -65,11 +54,11 @@ const options = {
                     id: post.name,
                     num_comments: post.num_comments,
                     comments:[],
-                    video:post.secure_media_embed.media_domain_url,
-                    is_video: post.is_video, 
-                    redditVid: post.media  
+                    redditVid: post.media,
+                    post_hint:post.post_hint
                 }
             })
+            state.allData = action.payload
           },
           [getData.rejected]: (state, action) => {
             state.isLoading = false;
@@ -101,34 +90,7 @@ const options = {
             state.isLoadingComments = false;
             state.hasErrorComments = true
             },
-            [changeTopic.pending]: (state, action) => {
-              state.isLoading = true;
-              state.hasError = false;
-            },
-            //ExtraReducer to handle the changeTopic thunk action
-            [changeTopic.fulfilled]: (state, action) => {
-              state.isLoading = false;
-              state.hasError = false;
-              state.posts = action.payload.map(post=>{
-                  
-                  return {
-                    title: post.title,
-                    author: post.author,
-                    url: post.url,
-                    permalink: post.permalink,
-                    id: post.name,
-                    num_comments: post.num_comments,
-                    comments:[],
-                    video:post.secure_media_embed.media_domain_url,
-                    is_video: post.is_video, 
-                    redditVid: post.media, 
-                  }
-              })
-            },
-            [changeTopic.rejected]: (state, action) => {
-              state.isLoading = false;
-              state.hasError = true;
-            },
+           
     }
 }
 

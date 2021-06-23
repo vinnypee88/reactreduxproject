@@ -1,22 +1,22 @@
-.comment-container:hover{
-    box-shadow: 5px 10px rgba(181, 202, 174, 0.786);
-    -webkit-box-shadow: 3px 3px 5px 6px rgba(181, 202, 174, 0.786);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-    -moz-box-shadow:    3px 3px 5px 6px rgba(181, 202, 174, 0.786);  /* Firefox 3.5 - 3.6 */
+.comment-container:hover {
+  box-shadow: 5px 10px rgba(181, 202, 174, 0.786);
+  -webkit-box-shadow: 3px 3px 5px 6px rgba(181, 202, 174, 0.786); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: 3px 3px 5px 6px rgba(181, 202, 174, 0.786); /* Firefox 3.5 - 3.6 */
 }
 .comment {
-    flex-wrap: wrap;
-    text-align: justify;
-    margin-left:3%;
-    margin-right:3%;
+  padding-top: 15px;
+  flex-wrap: wrap;
+  text-align: justify;
+  margin-left: 3%;
+  margin-right: 3%;
 }
 .author {
-    color: rgb(12, 76, 12);
-    font-weight: bold;
-    padding:0;
-    margin-top: -1%;
-    text-align: left;
-    margin-left:3%;
-    margin-right:3%;
-    font-style: italic;
-    
+  color: rgb(12, 76, 12);
+  font-weight: bold;
+  padding: 0;
+  margin-top: -1%;
+  text-align: left;
+  margin-left: 3%;
+  margin-right: 3%;
+  font-style: italic;
 }
