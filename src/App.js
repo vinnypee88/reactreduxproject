@@ -46,6 +46,7 @@ if (arrayOfPosts.length === 0) {
         redditVid={post.redditVid}
         post_hint={post.post_hint}
         created_utc={post.created_utc}
+        thumbnail={post.thumbnail}
         />
       }))
     }

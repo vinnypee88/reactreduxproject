@@ -57,6 +57,7 @@ const options = {
                     redditVid: post.media,
                     post_hint:post.post_hint,
                     created_utc:post.created_utc,
+                    thumbnail:post.thumbnail
                 }
             })
             state.allData = action.payload
@@ -86,7 +87,6 @@ const options = {
                                       created_utc: comment.data.created_utc
                                       }
                           })
-            state.posts[index].allData = action.payload
             } 
             },
           [getComments.rejected] : (state, action) => {

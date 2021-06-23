@@ -4,7 +4,7 @@ import { useDispatch} from "react-redux";
 import { getComments } from '../../features/popularPost/popularPostSlice'
 import Comments from '../Comments/Comments'
 
-function Post ({name, url, author, permalink, comments, num_comments, redditVid, post_hint, created_utc}) {
+function Post ({name, url, author, permalink, comments, num_comments, redditVid, post_hint, created_utc, thumbnail}) {
 
   const [showResults, setShowResults] = useState(false)
 
@@ -41,7 +41,7 @@ function Post ({name, url, author, permalink, comments, num_comments, redditVid,
 
   const getTag = () => {
     if (post_hint === "link") {
-      return <a className="link" href={url} rel = "noreferrer" target="_blank">{url}</a>
+      return <a href={url}><img src={thumbnail} alt={name}/></a>
     }
     if (post_hint === "rich:video") {
       return (

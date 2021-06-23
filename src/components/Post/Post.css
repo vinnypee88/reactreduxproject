@@ -44,13 +44,6 @@ h2 {
   width: 70%;
   flex-direction: column;
 }
-.Post .link {
-  text-align: left;
-  font-size: 0.8em;
-  padding-left: 30px;
-  padding-right: 30px;
-  color: darkgreen;
-}
 video {
   max-width: 80%;
 }
