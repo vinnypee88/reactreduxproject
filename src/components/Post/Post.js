@@ -4,11 +4,24 @@ import { useDispatch} from "react-redux";
 import { getComments } from '../../features/popularPost/popularPostSlice'
 import Comments from '../Comments/Comments'
 
-function Post ({name, url, author, permalink, comments, num_comments, redditVid, post_hint}) {
+function Post ({name, url, author, permalink, comments, num_comments, redditVid, post_hint, created_utc}) {
 
   const [showResults, setShowResults] = useState(false)
 
   const dispatch=useDispatch()
+
+  const roundTime = t => {
+        var unixTimestamp = t;
+        var data = new Date(unixTimestamp * 1000);
+        var hours = data.getHours();
+        if (hours >= 24) {
+            return data.getDay() + ' days';
+        } else if (hours >= 1) {
+            return hours + ' hours';
+        } else {
+            return data.getMinutes() + ' minutes';
+        }
+    }
    
   const handleClick = async () => {
       setShowResults(!showResults)
@@ -52,7 +65,7 @@ function Post ({name, url, author, permalink, comments, num_comments, redditVid,
                   <h2 >{name}</h2>
                     {getTag()}
                     <div className='author-comments'>
-                      <p className='post-author'>{author}</p>
+                      <p className='post-author'>{author} - {roundTime(created_utc)} ago</p>
                       <button id="comments-button" className="comments-button" onClick ={handleClick} permalink={permalink}><i className="fa fa-bullhorn"></i> {num_comments}</button>
                     </div>
                     { showResults ? <Comments comments={comments}/> : null }

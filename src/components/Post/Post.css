@@ -23,6 +23,7 @@ h2 {
   padding-left: 30px;
   padding-right: 30px;
   text-align: left;
+  color: rgb(12, 76, 12);
 }
 .author-comments {
   display: flex;

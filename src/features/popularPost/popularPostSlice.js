@@ -55,7 +55,8 @@ const options = {
                     num_comments: post.num_comments,
                     comments:[],
                     redditVid: post.media,
-                    post_hint:post.post_hint
+                    post_hint:post.post_hint,
+                    created_utc:post.created_utc,
                 }
             })
             state.allData = action.payload
@@ -82,8 +83,10 @@ const options = {
             state.posts[index].comments = action.payload.map(comment =>{
                               return {comment: comment.data.body,
                                       author: comment.data.author,
+                                      created_utc: comment.data.created_utc
                                       }
                           })
+            state.posts[index].allData = action.payload
             } 
             },
           [getComments.rejected] : (state, action) => {

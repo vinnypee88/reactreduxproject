@@ -45,6 +45,7 @@ if (arrayOfPosts.length === 0) {
         num_comments={post.num_comments}
         redditVid={post.redditVid}
         post_hint={post.post_hint}
+        created_utc={post.created_utc}
         />
       }))
     }

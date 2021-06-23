@@ -7,7 +7,7 @@ function Comments ({comments}) {
                     <div className="Comments" >
                        {comments.map(comment =>
                         {
-                                return <Comment comment={comment.comment} author={comment.author}/>
+                                return <Comment comment={comment.comment} author={comment.author} created_utc={comment.created_utc}/>
                         }
                         )}
                     </div>
