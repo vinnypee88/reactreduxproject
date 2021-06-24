@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import './App.css';
 import Header from './components/Header/Header'
 import Post from './components/Post/Post'
-import { getData, selectPosts } from './features/popularPost/popularPostSlice'
+import { getData, selectPosts, selectIsLoading } from './features/popularPost/popularPostSlice'
 
 function App() {
 
@@ -17,7 +17,9 @@ useEffect(() => {
   dispatch(getData(currentTopic));
   }, [currentTopic, dispatch]);
 
- 
+const isLoading = useSelector(selectIsLoading)
+console.log(isLoading)
+  
 const handleClick = (e) =>{
   setCurrentTopic(e.target.value)
   }
@@ -67,12 +69,12 @@ const home = () => {
       </main>
       <aside>
         <h2>SubReddits</h2>
-        <button onClick = {handleClick} value='sports'>&#127962;</button>
-        <button onClick = {handleClick} value='football'>&#9917;</button>
-        <button onClick = {handleClick} value='tennis'>&#127934;</button>
-        <button onClick = {handleClick} value='rugbyunion'>&#127945;</button>
-        <button onClick = {handleClick} value='basketball'>&#127936;</button>
-        <button onClick = {handleClick} value='golf'>&#127948;</button>
+        <button onClick = {handleClick} id={isLoading ? "spinnerTopic": ""} value='sports'>&#127962;</button>
+        <button onClick = {handleClick} id={isLoading ? "spinnerTopic": ""} value='football'>&#9917;</button>
+        <button onClick = {handleClick} id={isLoading ? "spinnerTopic": ""} value='tennis'>&#127934;</button>
+        <button onClick = {handleClick} id={isLoading ? "spinnerTopic": ""} value='rugbyunion'>&#127945;</button>
+        <button onClick = {handleClick} id={isLoading ? "spinnerTopic": ""} value='basketball'>&#127936;</button>
+        <button onClick = {handleClick} id={isLoading ? "spinnerTopic": ""} value='golf'>&#127948;</button>
       </aside>
     </div>
   );

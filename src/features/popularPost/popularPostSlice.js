@@ -103,6 +103,7 @@ const popularPostSlice = createSlice(options)
 export const { filterSearch } = popularPostSlice.actions
 export const selectPosts = state => state.popularPost.posts
 export const selectIsLoadingComments = state => state.popularPost.isLoadingComments
+export const selectIsLoading = state => state.popularPost.isLoading
 
 export default popularPostSlice.reducer
 
