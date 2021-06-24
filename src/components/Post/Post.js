@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Post.css'
 import { useDispatch, useSelector} from "react-redux";
-import { getComments, selectIsLoading, toggleIsLoading } from '../../features/popularPost/popularPostSlice'
+import { getComments, selectIsLoadingComments } from '../../features/popularPost/popularPostSlice'
 import Comments from '../Comments/Comments'
 
 function Post ({name, url, author, permalink, comments, num_comments, redditVid, post_hint, created_utc, thumbnail}) {
@@ -10,7 +10,7 @@ function Post ({name, url, author, permalink, comments, num_comments, redditVid,
 
   const dispatch=useDispatch()
 
-  const loading = useSelector(selectIsLoading)
+  const isCommentsLoading = useSelector(selectIsLoadingComments)
 
   const roundTime = t => {
         var unixTimestamp = t;
@@ -26,7 +26,6 @@ function Post ({name, url, author, permalink, comments, num_comments, redditVid,
     }
    
   const handleClick = async () => {
-      toggleIsLoading()
       setShowResults(!showResults)
       const apiRoot = 'https://www.reddit.com'
       const fetchCommentsLink = apiRoot + permalink + '.json'
@@ -69,8 +68,11 @@ function Post ({name, url, author, permalink, comments, num_comments, redditVid,
                     {getTag()}
                     <div className='author-comments'>
                       <p className='post-author'>{author} - {roundTime(created_utc)} ago</p>
-                      {loading? <p>LOADING</p> : <p></p>}
-                      <button id="comments-button" className="comments-button" onClick ={handleClick} permalink={permalink}><i className="fa fa-bullhorn"></i> {num_comments}</button>
+                     
+                      <button id="comments-button" 
+                              className="comments-button" 
+                              onClick ={handleClick} 
+                              permalink={permalink}> <i id={isCommentsLoading ?  "spinner": ""} className="fa fa-bullhorn"></i> {num_comments}</button>
                     </div>
                     { showResults ? <Comments comments={comments}/> : null }
               </div>

@@ -11,6 +11,23 @@
   -webkit-box-shadow: 3px 3px 20px 6px rgba(112, 124, 108, 0.786); /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
   -moz-box-shadow: 3px 3px 20px 6px rgba(112, 124, 108, 0.786); /* Firefox 3.5 - 3.6 */
 }
+#spinner {
+  animation-name: spin;
+  animation-duration: 700ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  font-size: 30px;
+  color: red;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 h2 {
   padding-left: 3%;
   padding-right: 30px;
@@ -36,8 +53,6 @@ h2 {
 }
 .comments-button:hover {
   font-weight: bold;
-  color: green;
-  font-size: large;
 }
 .Post img {
   height: auto;
@@ -67,15 +82,17 @@ video {
 }
 
 @media only screen and (max-width: 400px) {
+  .Post {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
   .Post h2 {
-    font-size: 0.5em;
+    font-size: 0.9em;
     padding-right: 10px;
     padding-left: 10px;
   }
-
   .Post p {
-    font-size: 0.5em;
-    padding-right: 10px;
-    padding-left: 10px;
+    font-size: 0.9em;
+    word-wrap: break-word;
   }
 }

@@ -16,7 +16,6 @@ export const getComments = createAsyncThunk(
     async (fetchCommentsLink) => {
     const data = await fetch(fetchCommentsLink);
     const json = await data.json();
-    toggleIsLoading()
     return json[1].data.children 
     }
   );
@@ -26,7 +25,6 @@ const options = {
     initialState: {
         posts: [{}],
         index: [],
-        isLoading:false,
     },
     reducers: {
       filterSearch: (state, action) => {
@@ -39,9 +37,7 @@ const options = {
           } else {
             state.posts = filteredPosts
           }
-      }, toggleIsLoading: (state, action ) =>{
-      state.isLoading = !state.isLoading
-    }
+      }, 
     },
     extraReducers: {
         [getData.pending]: (state, action) => {
@@ -104,9 +100,9 @@ const options = {
 }
 
 const popularPostSlice = createSlice(options)
-export const { filterSearch, toggleIsLoading } = popularPostSlice.actions
+export const { filterSearch } = popularPostSlice.actions
 export const selectPosts = state => state.popularPost.posts
-export const selectIsLoading = state => state.popularPost.isLoading
+export const selectIsLoadingComments = state => state.popularPost.isLoadingComments
 
 export default popularPostSlice.reducer
 
