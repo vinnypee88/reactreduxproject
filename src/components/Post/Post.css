@@ -34,6 +34,7 @@ h2 {
   text-align: left;
   padding-top: 15px;
   font-size: 1.2em;
+  word-wrap: break-word;
 }
 .post-author {
   font-weight: bold;
