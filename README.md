@@ -1,6 +1,6 @@
 # Reddit Client Project
 
-This is a front end project incorporating react and redux technologies.
+This first attempt at creating a front end project incorporating react and redux technologies.
 
 ## Description
 
